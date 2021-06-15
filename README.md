@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ## Model mBART Checkpoint
 We use [mBART 50 pretrained model](https://dl.fbaipublicfiles.com/fairseq/models/mbart50/mbart50.pretrained.tar.gz), download it, then extract to `mbart50.pretrained/` then trim it with this script:
 ```
-trim_mbart by: python scripts/trim_mbart.py --pre-train-dir ./mbart50.pretrained --ft-dict ./ft/dict.en_XX.txt --langs ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN,af_ZA,az_AZ,bn_IN,fa_IR,he_IL,hr_HR,id_ID,ka_GE,km_KH,mk_MK,ml_IN,mn_MN,mr_IN,pl_PL,ps_AF,pt_XX,sv_SE,sw_KE,ta_IN,te_IN,th_TH,tl_XX,uk_UA,ur_PK,xh_ZA,gl_ES,sl_SI --output ./ft/model.pt
+python scripts/trim_mbart.py --pre-train-dir ./mbart50.pretrained --ft-dict ./ft/dict.en_XX.txt --langs ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN,af_ZA,az_AZ,bn_IN,fa_IR,he_IL,hr_HR,id_ID,ka_GE,km_KH,mk_MK,ml_IN,mn_MN,mr_IN,pl_PL,ps_AF,pt_XX,sv_SE,sw_KE,ta_IN,te_IN,th_TH,tl_XX,uk_UA,ur_PK,xh_ZA,gl_ES,sl_SI --output ./ft/model.pt
 ```
 ## Data Preparation
 Prepare your data files into `datasets/[dataset name]`, which should consist of six data files as `[train/val/test].[source/target]`. These data files are raw text with each row representing one example. We take `cnndm` dataset as an example to preprocess the dataset (see [here](https://github.com/pytorch/fairseq/blob/master/examples/bart/README.summarization.md) for instructions to obtain the cnndm dataset).
@@ -50,7 +50,7 @@ Prepare your data files into `datasets/[dataset name]`, which should consist of 
 Then create spm for source document and target document by: 
 
 ```bash
- bash scripts/spm_mbart.sh -s source -t target
+bash scripts/spm_mbart.sh -s source -t target
 ```
 
 Then preprocess data with source and target language by:
@@ -147,12 +147,12 @@ python scripts/preprocess.py liputan6 --split test --mode process_tagger_predict
 
 ### Metrics:
 
-We report ROUGE scores and [BERTScore](https://github.com/Tiiiger/bert_score) in the paper. The ROUGE scores in the paper are computed using [files2rouge](https://github.com/pltrdy/files2rouge) which is a wrapper of a wrapper of the original ROUGE perl scripts. Please refer to `scripts/test_bart.sh` for our evaluation script:
+We report ROUGE scores and [BERTScore](https://github.com/Tiiiger/bert_score) in the paper. The ROUGE scores in the paper are computed using [files2rouge](https://github.com/pltrdy/files2rouge) which is a wrapper of a wrapper of the original ROUGE perl scripts. Please refer to `scripts/test_mbart.sh` for our evaluation script:
 
 ```bash
 # you will need the Stanford corenlp java toolkit to run this, we use it for tokenization
 # this script computes ROUGE and (optionally) BERTScore.
-bash scripts/test_bart.sh -g [GPUs] -s [source file name, NOT full path] -d [dataset] -p [ctrlsum checkpoint directory]
+bash scripts/test_mbart.sh -g [GPUs] -s [source file name, NOT full path] -d [dataset] -p [ctrlsum checkpoint directory]
 ```
 
 
