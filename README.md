@@ -6,13 +6,11 @@ CTRLsum: Towards Generic Controllable Text Summarization
 Junxian He, Wojciech Kryściński, Bryan McCann, Nazneen Rajani, Caiming Xiong
 arXiv 2020
 ```
-
-This repo includes instructions for [using pretrained CTRLsum models](#example-usage-of-pretrained-models) as well as [training new models](#train-ctrlsum).
  
 
 
 ## Dependencies
-The code requires Python 3, [PyTorch](https://pytorch.org/) (>=1.4.0), and [fairseq](https://github.com/pytorch/fairseq) (the code is tested on this [commit](https://github.com/pytorch/fairseq/commit/fad3cf0769843e767155f4d0af18a61b9a804f59))
+The code requires Python 3, [PyTorch](https://pytorch.org/) (>=1.5.0), and [fairseq](https://github.com/pytorch/fairseq) (the code is tested on this [commit](https://github.com/pytorch/fairseq/commit/fad3cf0769843e767155f4d0af18a61b9a804f59))
 
 Install dependencies:
 ```bash
