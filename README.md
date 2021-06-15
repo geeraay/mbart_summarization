@@ -26,10 +26,10 @@ git reset --hard fad3cf07
 # as of creating this README, thus we need to make several modifications to 
 # fairseq before installing it
 cp ../ctrlsum_mbart/fairseq_task.py fairseq/tasks/fairseq_task.py
-cp ../ctrlsum_mbart/sequence_generator.py fairseq/
-cp ../ctrlsum_mbart/hub_interface.py fairseq/models/bart/
-cp ../ctrlsum_mbart/translation.py fairseq/tasks
-cp ../ctrlsum_mbart/translation_from_pretrained_bart.py fairseq/tasks
+cp ../ctrlsum_mbart/sequence_generator.py fairseq/sequence_generator.py
+cp ../ctrlsum_mbart/hub_interface.py fairseq/models/bart/hub_interface.py
+cp ../ctrlsum_mbart/translation.py fairseq/tasks/translation.py
+cp ../ctrlsum_mbart/translation_from_pretrained_bart.py fairseq/tasks/translation_from_pretrained_bart.py
 
 # install fairseq
 pip install --editable ./
